@@ -1,292 +1,432 @@
-import Image from "next/image";
-import Navbar from "../components/Navbar";
-import SiteFooter from "../components/SiteFooter";
+export default function HomePage() {
+  const featuredLogos = [
+    "PREMIUM",
+    "STYLING",
+    "AUGSBURG",
+    "BALAYAGE",
+    "BRIDAL",
+    "LUXURY",
+  ];
 
-const services = [
-  {
-    title: "Damen",
-    text: "Waschen, Schneiden, Föhnen, Styling und individuelle Looks für kurzes, mittellanges und langes Haar.",
-  },
-  {
-    title: "Coloration",
-    text: "Ansatzfarbe, Globalfärbung, Glossing sowie filigrane Farb- und Strähnentechniken.",
-  },
-  {
-    title: "Herren",
-    text: "Waschen, Schneiden, Föhnen, Styling, Maschinenhaarschnitt und Bartpflege.",
-  },
-  {
-    title: "Kinder",
-    text: "Haarschnitte für Mädchen und Jungen bis 14 Jahre in entspannter Atmosphäre.",
-  },
-  {
-    title: "Kosmetik",
-    text: "Augenbrauen zupfen mit Fadentechnik, Augenbrauenfärben und Wimpernfärben.",
-  },
-  {
-    title: "Event Styling",
-    text: "Brautstyling, Probetermine, Eventstyling sowie Styling für Verlobung, Fotoshooting und Hennaabend.",
-  },
-];
+  const benefits = [
+    "Individuelle Beratung für deinen perfekten Look",
+    "Moderne Techniken für Schnitt, Farbe und Styling",
+    "Luxuriöse Atmosphäre im Herzen Augsburgs",
+    "Event-, Bridal- und Premium-Stylings mit Gefühl",
+  ];
 
-const openingHours = [
-  { day: "Montag", time: "Geschlossen" },
-  { day: "Dienstag", time: "09:00 - 15:30" },
-  { day: "Mittwoch", time: "09:00 - 15:30" },
-  { day: "Donnerstag", time: "09:00 - 18:00" },
-  { day: "Freitag", time: "09:00 - 15:30" },
-  { day: "Samstag", time: "09:00 - 18:00" },
-  { day: "Sonntag", time: "Geschlossen" },
-];
+  const openingHours = [
+    ["Montag", "Geschlossen"],
+    ["Dienstag", "09:00 – 15:30"],
+    ["Mittwoch", "09:00 – 15:30"],
+    ["Donnerstag", "09:00 – 18:00"],
+    ["Freitag", "09:00 – 15:30"],
+    ["Samstag", "09:00 – 18:00"],
+    ["Sonntag", "Geschlossen"],
+  ];
 
-export default function Home() {
   return (
-    <main className="bg-[#f8f5f1] pb-24 text-[#1f1f1f] md:pb-0">
-      <Navbar />
+    <main className="bg-[#f5f1eb] text-[#2b241f]">
+      <header className="absolute inset-x-0 top-0 z-50">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 lg:px-10">
+          <a href="#" className="flex items-center">
+  <img
+    src="/images/logo.png"
+    alt="Filigran Hairstylist"
+    className="h-20 w-auto"
+  />
+</a>
 
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hair-hero.jpg"
-            alt="Filigran Hairstylist Augsburg"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+          <nav className="hidden items-center gap-7 xl:flex">
+            <a href="#about" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Über uns
+            </a>
+            <a href="#services" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Damen
+            </a>
+            <a href="#services" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Herren
+            </a>
+            <a href="#event" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Styling & Anlass
+            </a>
+            <a href="#gallery" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Galerie
+            </a>
+            <a href="#prices" className="text-[15px] text-[#3c332b] hover:text-[#b48b3c]">
+              Preise
+            </a>
+          </nav>
 
-        <div className="relative mx-auto flex min-h-[76vh] max-w-7xl items-center px-5 py-20 sm:px-6 md:min-h-[88vh] md:px-10 md:py-24">
-          <div className="max-w-3xl pt-20 text-white md:pt-24">
-            <p className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs backdrop-blur sm:px-4 sm:text-sm">
-              Filigran Hairstylist • Schmiedberg 17 • Augsburg
-            </p>
-
-            <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-6xl">
-              Moderne, filigrane Haarkunst für deinen perfekten Look
-            </h1>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/90 sm:text-base md:mt-6 md:text-lg">
-              Individuelle Beratung, präzises Handwerk und stilvolle Ergebnisse
-              für Damen, Herren und Kinder – mit Coloration, Styling, Kosmetik
-              und Event Looks.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <a
-                href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-2xl bg-white px-6 py-3 text-center font-semibold text-black transition hover:scale-[1.02]"
-              >
-                Jetzt online buchen
-              </a>
-
-              <a
-                href="tel:017620664037"
-                className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-center font-semibold text-white backdrop-blur transition hover:bg-white/20"
-              >
-                Jetzt anrufen
-              </a>
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 text-sm text-white/90 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              <span className="inline-flex w-fit rounded-full bg-[#d4af37] px-3 py-1 font-semibold text-black">
-                5,0 Bewertung
-              </span>
-              <span>Online-Terminbuchung verfügbar</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:px-10 md:py-20">
-        <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-10">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9a7b4f] sm:text-sm">
-              Über den Salon
-            </p>
-            <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl">
-              Schönheit liegt im Detail
-            </h2>
-          </div>
-
-          <div className="text-base leading-8 text-[#4f4b45] sm:text-[17px]">
-            <p>
-              Bei FILIGRAN Hairstyle Augsburg steht jedes Detail im Mittelpunkt.
-              Der Salon verbindet präzises Handwerk mit kreativer Leidenschaft –
-              für Looks, die nicht nur schön aussehen, sondern die Persönlichkeit
-              perfekt unterstreichen.
-            </p>
-            <p className="mt-4">
-              Ob trendige Haarschnitte, sanfte Balayage-Verläufe, filigrane
-              Strähnentechniken oder elegante Stylings: Hier entstehen
-              individuelle Ergebnisse mit viel Feingefühl, hochwertigen
-              Produkten und echter Herzlichkeit.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="bg-white py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
-          <div className="mb-10 text-center md:mb-12">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9a7b4f] sm:text-sm">
-              Leistungen
-            </p>
-            <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl">
-              Für Alltag, Pflege und besondere Anlässe
-            </h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-3xl border border-[#ece6de] bg-[#f8f5f1] p-6 shadow-sm md:p-7"
-              >
-                <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
-                <p className="leading-7 text-[#59544d]">{service.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="team" className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:px-10 md:py-20">
-        <div className="mb-10 text-center md:mb-12">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9a7b4f] sm:text-sm">
-            Team
-          </p>
-          <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl">
-            Mit Liebe zum Detail für dich da
-          </h2>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-[#ece6de] md:p-8">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1f1f1f] text-xl font-semibold text-white">
-              F
-            </div>
-            <h3 className="text-2xl font-semibold">Filiz</h3>
-            <p className="mt-3 leading-7 text-[#59544d]">
-              Persönliche Beratung, moderne Looks und filigrane Haarkunst mit
-              Gespür für Form, Farbe und Stil.
-            </p>
-          </div>
-
-          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-[#ece6de] md:p-8">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1f1f1f] text-xl font-semibold text-white">
-              A
-            </div>
-            <h3 className="text-2xl font-semibold">Arjuwan</h3>
-            <p className="mt-3 leading-7 text-[#59544d]">
-              Unterstützung bei Styling und besonderen Event-Looks mit Fokus auf
-              ein harmonisches und hochwertiges Ergebnis.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#1f1f1f] py-16 text-white md:py-20">
-        <div className="mx-auto max-w-4xl px-5 text-center sm:px-6 md:px-10">
-          <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl">
-            Buche deinen Termin schnell und unkompliziert online
-          </h2>
-          <p className="mt-4 text-sm text-white/80 sm:mt-5 sm:text-base">
-            Sofortige Bestätigung und bequeme Terminbuchung über Planity.
-          </p>
-
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+          <div className="hidden items-center gap-3 lg:flex">
             <a
               href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl bg-white px-6 py-3 text-center font-semibold text-black"
+              className="inline-flex h-12 items-center rounded-md bg-[#c8a25a] px-6 text-sm font-medium text-white transition hover:bg-[#b89249]"
             >
-              Online buchen
+              Termin anfragen
             </a>
             <a
-              href="tel:017620664037"
-              className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white"
+              href="tel:+4917620664037"
+              className="inline-flex h-12 items-center gap-3 rounded-md border border-white/70 bg-white/20 px-5 text-sm font-medium text-[#2b241f] backdrop-blur hover:bg-white/35"
             >
-              Telefonisch kontaktieren
+              <span className="text-base">📞</span>
+              <span>Jetzt anrufen</span>
             </a>
+          </div>
+        </div>
+      </header>
+
+      <section className="relative min-h-[930px] overflow-hidden">
+        <div className="absolute inset-0">
+          <video
+            className="h-full w-full object-cover"
+            src="/videos/hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,241,235,0.96)_0%,rgba(245,241,235,0.78)_20%,rgba(245,241,235,0.18)_48%,rgba(205,168,120,0.18)_100%)]" />
+        </div>
+
+        <div className="relative z-10 mx-auto flex min-h-[930px] max-w-[1400px] items-center px-6 pt-32 pb-20 lg:px-10">
+          <div className="max-w-[760px]">
+            <h1 className="max-w-[760px] font-serif text-[52px] leading-[1.08] text-white sm:text-[68px] lg:text-[78px]">
+              Filigran Hairstylist Augsburg –
+              <span className="block text-white/95">
+                Dein Premium Friseurerlebnis
+              </span>
+            </h1>
+
+            <p className="mt-7 max-w-[720px] text-[22px] leading-[1.6] text-white/95">
+              Luxus für dein Haar – exklusiver Friseur in Augsburg für moderne
+              Schnitte, Balayage, Styling und besondere Anlässe.
+            </p>
+
+            <div className="mt-10">
+              <a
+                href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-[58px] items-center rounded-md bg-[#c79b2c] px-9 text-[18px] font-medium text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition hover:bg-[#b88a1c]"
+              >
+                Jetzt Termin sichern
+              </a>
+            </div>
+
+            <div className="mt-9">
+              <p className="text-[17px] italic text-white/80">Beliebte Bereiche</p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4 text-[28px] font-semibold tracking-tight text-[#201d1a]">
+                {featuredLogos.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md bg-white/30 px-3 py-1 text-[26px] text-[#1d1a18] backdrop-blur-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:px-10 md:py-20">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9a7b4f] sm:text-sm">
-              Kontakt
-            </p>
-            <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl">
-              Besuche uns in Augsburg
+      <section
+        id="about"
+        className="bg-[#f3f2f0] py-24"
+      >
+        <div className="mx-auto grid max-w-[1400px] gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+          <div className="max-w-[760px]">
+            <h2 className="font-serif text-[48px] leading-[1.18] text-[#342b24] sm:text-[58px]">
+              Warum Filigran Hairstylist in Augsburg
+              <span className="block">die beste Wahl ist</span>
             </h2>
 
-            <div className="mt-8 space-y-4 text-base text-[#4f4b45] sm:text-[17px]">
+            <p className="mt-8 max-w-[760px] text-[25px] leading-[1.65] text-[#4f463f]">
+              Willst du einen Friseur auf höchstem Niveau? Bei Filigran
+              Hairstylist erwartet dich ein exklusives Styling-Erlebnis mit
+              modernen Techniken, hochwertiger Pflege und einem stilvollen
+              Salon-Ambiente im Herzen von Augsburg.
+            </p>
+
+            <div className="mt-10 space-y-7">
+              {benefits.map((item) => (
+                <div key={item} className="flex items-start gap-4">
+                  <div className="mt-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#efe6d4] text-[#c39b58]">
+                    ✓
+                  </div>
+                  <p className="text-[23px] leading-[1.6] text-[#403731]">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-5 self-start">
+  <div className="overflow-hidden bg-[#ddd6cf]">
+    <img
+      src="/images/about-1.jpeg"
+      className="h-[360px] w-full object-cover"
+      alt=""
+    />
+  </div>
+
+  <div className="overflow-hidden bg-[#ddd6cf]">
+    <img
+      src="/images/about-2.jpeg"
+      className="h-[360px] w-full object-cover"
+      alt=""
+    />
+  </div>
+
+  <div className="overflow-hidden bg-[#ddd6cf]">
+    <img
+      src="/images/about-3.jpeg"
+      className="h-[360px] w-full object-cover"
+      alt=""
+    />
+  </div>
+
+  <div className="overflow-hidden bg-[#ddd6cf]">
+    <img
+      src="/images/about-4.jpeg"
+      className="h-[360px] w-full object-cover"
+      alt=""
+    />
+  </div>
+</div>
+        </div>
+      </section>
+
+      <section id="services" className="bg-[#f7f3ed] py-24">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mb-14 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-[14px] uppercase tracking-[0.25em] text-[#9b8560]">
+                Leistungen
+              </p>
+              <h2 className="mt-4 font-serif text-[44px] leading-tight text-[#342b24] sm:text-[54px]">
+                Luxus, Styling und Schönheit im Detail
+              </h2>
+            </div>
+
+            <a
+              href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center rounded-md border border-[#d2c1a1] px-6 text-sm font-medium text-[#614e34] transition hover:bg-[#efe4d1]"
+            >
+              Alle Leistungen auf Planity
+            </a>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <article className="rounded-[20px] border border-[#e7dccd] bg-white p-7 shadow-sm">
+              <h3 className="font-serif text-[31px] text-[#312821]">Damen</h3>
+              <p className="mt-4 text-[18px] leading-8 text-[#5b5149]">
+                Präzise Haarschnitte, Waschen, Föhnen und moderne Looks mit
+                femininem Finish.
+              </p>
+            </article>
+
+            <article className="rounded-[20px] border border-[#e7dccd] bg-white p-7 shadow-sm">
+              <h3 className="font-serif text-[31px] text-[#312821]">Coloration</h3>
+              <p className="mt-4 text-[18px] leading-8 text-[#5b5149]">
+                Balayage, Glossing, Ansatzfarbe und hochwertige Farbtechniken
+                für natürliche Eleganz.
+              </p>
+            </article>
+
+            <article className="rounded-[20px] border border-[#e7dccd] bg-white p-7 shadow-sm">
+              <h3 className="font-serif text-[31px] text-[#312821]">Herren</h3>
+              <p className="mt-4 text-[18px] leading-8 text-[#5b5149]">
+                Moderne, saubere Schnitte mit Stil, Struktur und einem gepflegten Gesamtbild.
+              </p>
+            </article>
+
+            <article
+              id="event"
+              className="rounded-[20px] border border-[#e7dccd] bg-white p-7 shadow-sm"
+            >
+              <h3 className="font-serif text-[31px] text-[#312821]">Styling & Anlass</h3>
+              <p className="mt-4 text-[18px] leading-8 text-[#5b5149]">
+                Brautstyling, Hochstecken und Looks für Verlobung, Hennaabend,
+                Fotoshooting und Events.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="bg-[#efeae3] py-24">
+  <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+    <div className="mb-14">
+      <p className="text-[14px] uppercase tracking-[0.25em] text-[#9b8560]">
+        Galerie
+      </p>
+      <h2 className="mt-4 font-serif text-[44px] text-[#342b24] sm:text-[54px]">
+        Eindrücke aus dem Salon
+      </h2>
+    </div>
+
+    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {[
+        "/videos/showcase-01.mp4",
+
+        "/videos/showcase-03.mp4",
+        "/videos/showcase-04.mp4",
+        "/videos/showcase-05.mp4",
+        "/videos/showcase-06.mp4",
+      ].map((src, index) => (
+        <div
+          key={src}
+          className={`overflow-hidden rounded-[18px] bg-[#ddd6cf] ${
+            index === 0 ? "md:col-span-2" : ""
+          }`}
+        >
+          {src.endsWith(".mp4") ? (
+            <video
+              className="w-full object-cover h-[360px]"
+              src={src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={src}
+              alt="Showcase"
+              className={`w-full object-cover ${
+                index === 0 ? "h-[440px]" : "h-[360px]"
+              }`}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      <section id="prices" className="bg-white py-24">
+        <div className="mx-auto grid max-w-[1400px] gap-8 px-6 lg:grid-cols-[1fr_0.9fr] lg:px-10">
+          <div className="rounded-[24px] border border-[#eadfce] bg-[#faf7f2] p-8 lg:p-10">
+            <p className="text-[14px] uppercase tracking-[0.25em] text-[#9b8560]">
+              Kontakt
+            </p>
+            <h2 className="mt-4 font-serif text-[42px] leading-tight text-[#342b24] sm:text-[52px]">
+              Buche dein Friseurerlebnis in Augsburg
+            </h2>
+
+            <div className="mt-8 space-y-6 text-[20px] leading-9 text-[#4e443c]">
               <p>
-                <span className="font-semibold text-black">Adresse:</span>
-                <br />
+                <span className="block text-[14px] uppercase tracking-[0.22em] text-[#9b8560]">
+                  Adresse
+                </span>
                 Schmiedberg 17
                 <br />
                 86152 Augsburg
               </p>
 
               <p>
-                <span className="font-semibold text-black">Telefon:</span>
-                <br />
-                <a href="tel:017620664037" className="hover:underline">
-                  0176 20664037
-                </a>
+                <span className="block text-[14px] uppercase tracking-[0.22em] text-[#9b8560]">
+                  Terminbuchung
+                </span>
+                24/7 online über Planity
               </p>
+
+              <p>
+                <span className="block text-[14px] uppercase tracking-[0.22em] text-[#9b8560]">
+                  Ansprechpartner
+                </span>
+                Filiz · Arjuwan
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-14 items-center justify-center rounded-md bg-[#c79b2c] px-8 text-[16px] font-medium text-white hover:bg-[#b88a1c]"
+              >
+                Termin online buchen
+              </a>
+
+              <a
+                href="tel:+4917620664037"
+                className="inline-flex h-14 items-center justify-center rounded-md border border-[#d8c6a8] px-8 text-[16px] font-medium text-[#5e4a2d] hover:bg-[#f4ecdf]"
+              >
+                Jetzt anrufen
+              </a>
             </div>
           </div>
 
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9a7b4f] sm:text-sm">
+          <div className="rounded-[24px] border border-[#eadfce] bg-[#faf7f2] p-8 lg:p-10">
+            <p className="text-[14px] uppercase tracking-[0.25em] text-[#9b8560]">
               Öffnungszeiten
             </p>
 
-            <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-[#ece6de]">
-              {openingHours.map((item, index) => (
+            <div className="mt-8 space-y-4">
+              {openingHours.map(([day, hours]) => (
                 <div
-                  key={item.day}
-                  className={`flex items-center justify-between gap-4 px-5 py-4 md:px-6 ${
-                    index !== openingHours.length - 1 ? "border-b border-[#eee8e0]" : ""
-                  }`}
+                  key={day}
+                  className="flex items-center justify-between border-b border-[#e8ddcf] pb-4 text-[18px] text-[#4e443c]"
                 >
-                  <span className="font-medium">{item.day}</span>
-                  <span className="text-right text-[#59544d]">{item.time}</span>
+                  <span>{day}</span>
+                  <span>{hours}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-10 overflow-hidden rounded-[18px]">
+              <iframe
+                title="Filigran Hairstylist Augsburg Karte"
+                src="https://www.google.com/maps?q=Schmiedberg%2017,%2086152%20Augsburg&z=15&output=embed"
+                className="h-[300px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <SiteFooter />
+      <footer className="border-t border-[#ece2d5] bg-[#f8f4ee]">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-6 py-8 text-[15px] text-[#7a6a58] lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div>© {new Date().getFullYear()} Filigran Hairstylist · Augsburg</div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-black/10 bg-white/95 p-3 backdrop-blur md:hidden">
-        <div className="mx-auto flex max-w-md gap-3">
-          <a
-            href="tel:017620664037"
-            className="w-1/2 rounded-2xl bg-black px-4 py-3 text-center font-semibold text-white"
-          >
-            Anrufen
-          </a>
-          <a
-            href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
-            target="_blank"
-            rel="noreferrer"
-            className="w-1/2 rounded-2xl bg-[#d4af37] px-4 py-3 text-center font-semibold text-black"
-          >
-            Buchen
-          </a>
+          <div className="flex flex-wrap gap-5">
+            <a href="/impressum" className="hover:text-[#b48b3c]">
+              Impressum
+            </a>
+            <a href="/datenschutz" className="hover:text-[#b48b3c]">
+              Datenschutz
+            </a>
+            <a
+              href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#b48b3c]"
+            >
+              Planity
+            </a>
+          </div>
         </div>
-      </div>
+      </footer>
+
+      <a
+        href="https://www.planity.com/de-DE/filigran-hairstylist-86152-augsburg"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center rounded-full bg-[#c79b2c] px-6 py-3 text-sm font-medium text-white shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition hover:bg-[#b88a1c]"
+      >
+        Termin buchen
+      </a>
     </main>
   );
 }
