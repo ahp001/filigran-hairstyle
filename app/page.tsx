@@ -142,6 +142,19 @@ export default function HomePage() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  /* Force-play all videos on mobile (iOS Safari fix) */
+  useEffect(() => {
+    const tryPlay = () => {
+      document.querySelectorAll("video").forEach((v) => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    };
+    tryPlay();
+    document.addEventListener("touchstart", tryPlay, { once: true });
+    return () => document.removeEventListener("touchstart", tryPlay);
+  }, []);
+
   return (
     <main style={{ background: "#0c0b09", color: "#f0ead8" }}>
 
@@ -560,7 +573,7 @@ export default function HomePage() {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                 />
               </div>
             ))}
@@ -580,7 +593,7 @@ export default function HomePage() {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                 />
               </div>
             ))}
