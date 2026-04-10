@@ -142,6 +142,11 @@ export default function HomePage() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  /* Scroll to top on initial load */
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   /* Force-play all videos on mobile (iOS Safari fix) */
   useEffect(() => {
     const tryPlay = () => {
